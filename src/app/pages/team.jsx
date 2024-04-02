@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import ScaleText from "react-scale-text";
 
 const Team = () => {
     const [change, setChange] = useState(0);
@@ -29,7 +30,10 @@ const Team = () => {
                         <p className="climb-text-big">02.</p>
                         <p className="climb-text">CLIMB</p>
                     </div>
-                    <p className="climb-description">Cras scelerisque id quam sed dignissim Pellentesque urna nunc, gravida quis hendrerit ac, tristique ut quam. Vivamus suscipit dignissim tortor nec congue.</p>
+                    <div className="climb-description">
+                        Cras scelerisque id quam sed dignissim Pellentesque urna nunc, 
+                        gravida quis hendrerit ac, tristique ut quam. Vivamus suscipit dignissim tortor nec congue.
+                    </div>
                 </div>
                 <div className="mountain-bar">
                     <div className={`mountain-bar-box-1${change === 0 ? ' active' : ''}`} onClick={() => handleChange(0)}>
@@ -43,22 +47,6 @@ const Team = () => {
                         </p>
                     </div>
                 </div>
-                {/*
-                <div className="tab-content">
-                    <div className="tab-1">
-                        <div className="content-2">
-                            <p className="schedule-2">SCHEDULE</p>
-                            <p className="text-14">25 Nov 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br />28 Nov 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br /><span className="text-style">&nbsp;</span><br />18 Dec 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br /><span className="text-style">&nbsp;</span><br />7 Jan 2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra</p>
-                        </div>
-                    </div>
-                    <div className="tab-2">
-                        <div className="content">
-                            <p className="schedule">SCHEDULE</p>
-                            <p className="text-13">17 Nov 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br /><span className="text-style">&nbsp;</span><br />13 Dec 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br />28 Dec 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra<br /><span className="text-style">&nbsp;</span><br />9 Feb 2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vestibulum viverra</p>
-                        </div>
-                    </div>
-                </div>
-                */}
                 <div className="team-mountain-carousel">
                     <Carousel
                         ref={carouselRef}
@@ -67,6 +55,7 @@ const Team = () => {
                         draggable={false}
                         arrows={false}
                         partialVisible={false}
+                        swipeable={false}
                     >
                         <div className="mountain-1">
                             <div>

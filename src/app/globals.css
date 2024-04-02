@@ -1,3 +1,10 @@
+/*
+
+  Since this was a quick project, all css is located within global
+
+*/
+
+
 @charset "UTF-8";
 
 :root {
@@ -14,7 +21,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header,
+figure, figcaption,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video, input, textarea {
   margin: 0;
@@ -39,34 +46,6 @@ body {
   clear: both;
 }
 
-.mountain-pic {
-  position: relative;
-  height: 100%;
-  background: url(../../public/images/photo-1459666644539-a9755.jpg) no-repeat center 0;
-  background-position: center top;
-  background-size: cover;
-}
-
-.mountain-effect {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: url(../../public/images/layer_627.png) no-repeat center 0;
-  background-position: center top;
-  background-size: cover;
-}
-
-.los-angles-mountains-logo {
-  pointer-events: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  position: relative;
-  left: 21%;
-  top: 32%;
-}
 
 .row-2 {
   left: 11px;
@@ -130,6 +109,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
 .wrapper-2 {
   height: 148px;
   overflow: hidden;
@@ -147,42 +127,52 @@ body {
 }
 
 
-.climb-text {
-  left: 50%;
+.climb-text,
+.climb-text-big {
   position: absolute;
-  top: 77px;
   color: #414f6b;
   font-family: Oswald, sans-serif;
-  font-size: 200%; /* 32px / 16px = 200% */
   font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+}
+
+.climb-text {
+  left: 50%;
+  top: 77px;
+  font-size: 200%;
   line-height: 35px;
   margin-left: 32px;
+
 }
 
 .climb-text-big {
-  position: absolute;
   opacity: 0.5;
   color: #414f6b;
-  font-family: Oswald, sans-serif;
   font-size: 847%;
-  font-weight: bold;
   line-height: 107%;
 }
 
 .climb-description {
   float: left;
-  margin: 52px 0 0;
+  margin-top: 52px;
   width: 611px;
-  font-size: 100%; /* 16px / 16px = 100% */
   font-weight: 300;
-  line-height: 150%; /* 24px / 16px = 150% */
+  line-height: 150%;
 }
+
+.climb-description-container {
+  width: "10%";
+  height: "10%";
+}
+
 .l-constrained-2 {
   margin: 0 auto;
   padding: 0 18px;
   position: relative;
   width: 960px;
 }
+
 .text-11 {
   float: left;
   margin: 0 36px 0 0;
@@ -202,41 +192,64 @@ body {
   font-weight: bold;
 }
 
-.footer-2 {
-  padding: 16px 0 15px;
-  position: relative;
-  background: #414f6b;
-}
-
-.logo-3 {
-  float: left;
-  position: relative;
-  width: 163px;
-}
-.vector-smart-object-2 {
-  float: left;
-  margin: 0 10px 0 0;
-}
-.text-15 {
-  float: left;
-}
-.text-16 {
-  float: right;
-  margin: 13px 0 0;
-  width: 264px;
-  color: #63769d;
-  font-size: 75%; /* 12px / 16px = 75% */
-  font-style: italic;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .text-style {
   line-height: 24px;
 }
 
+/* Footer */
+.footer {
+  padding-top: 16px;
+  padding-bottom: 15px;
+  background: #414f6b;
+  width: 100%;
+  height: 45px;
+}
 
+.logo_blue {
+  margin-right: 10px;
+}
+
+.group-logos {
+  float: left;
+  margin-left: 16%;
+  align-items: center;
+}
+
+.copyright-text {
+  float: right;
+  margin-top: 13px;
+  margin-right: 18%;
+  width: 264px;
+  color: #63769d;
+  font-size: 75%;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .footer {
+    height: 100px;
+  }
+  
+  .group-logos {
+    float: revert;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .copyright-text {
+    text-align: center;
+    margin: 0 auto;
+    float: revert;
+    margin-top: 30px;
+  }
+
+}
 
 /* Navbar */ 
 .navbar {
@@ -255,7 +268,8 @@ body {
   margin-right: 15%;
 }
 
-.nav-words {
+.nav-words,
+.nav-words-mobile {
   color: var(--nav-color);
   text-decoration: none;
   cursor: pointer;
@@ -270,7 +284,8 @@ body {
   transition: color 0.5s ease;
 }
 
-.nav-words::before {
+.nav-words::before,
+.nav-words-mobile:before {
   content: '';
   position: absolute;
   bottom: 10px;
@@ -282,7 +297,8 @@ body {
   transition: width 0.3s, left 0.3s, color 0.5s ease;
 }
 
-.nav-words:hover::before {
+.nav-words:hover::before,
+.nav-words-mobile:hover:before {
   align-content: center; 
   width: 0;
 }
@@ -290,20 +306,27 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.logo {
+.logo,
+.logo-mobile {
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 25px; 
   display: inline-block;
-  margin-left: 100%;
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.3s;
 }
 
-.logo:hover {
+.logo{
+  margin-left: 100%;
+}
+
+.logo:hover,
+.logo-mobile:hover {
   transform: scale(1.05);
 }
 
@@ -313,30 +336,170 @@ body {
   transition: opacity 0.5s ease;
 }
 
-/* Styles for mobile menu */
-.mobile-menu {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff; /* Adjust as needed */
-  position: absolute;
-  top: 100%; /* Position below the navbar */
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it's above other content */
+.side-logo-mobile {
+    display: none;
 }
 
-.mobile-menu-toggle {
-  display: none; /* Hide by default */
+/* Styles for mobile menu */
+.mobile-menu {
+  display: none;
 }
+
+.fas.fa-bars {
+  display: none;
+  cursor: pointer;
+}
+
 
 @media screen and (max-width: 740px) {
   .nav-menu {
     display: none;
   }
 
-  .mobile-menu-toggle {
-    display: block;
+  .logo-container {
+    display: none;
   }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background-color: rgba(176, 180, 190, 0.7);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .mobile-menu li {
+    padding: 1.2rem 1rem;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgb(203, 203, 203);
+    /* Remove bullet points */
+    list-style-type: none;
+  }
+
+  .mobile-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu-top,
+  .mobile-menu-bottom {
+    position: relative;
+  }
+
+  .mobile-menu-bottom {
+    width: 100%;
+    margin-top: 40vh;
+    margin-left: 70%;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+
+  .fas.fa-bars,
+  .fas.fa-xmark {
+    display: flex;
+    color: #fefeff;
+    transform: scale(1);
+    transition: transform 0.1s;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .fas.fa-bars {
+    margin-left: 5%;
+  }
+
+  .fas.fa-bars:hover,
+  .fas.fa-xmark:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s;
+  }
+
+  .logo-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18%;
+    user-select: none;
+  }
+
+  .side-logo-mobile {
+    display: flex;
+    opacity: 0;
+    margin-right: 10%;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+}
+
+/* Main Page */
+
+.mountain-pic {
+  position: relative;
+  height: 100%;
+  background: url(../../public/images/photo-1459666644539-a9755.jpg) no-repeat center 0;
+  background-position: center top;
+  background-size: cover;
+}
+
+.mountain-effect {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url(../../public/images/layer_627.png) no-repeat center 0;
+  background-position: center top;
+  background-size: cover;
+}
+
+.los-angles-mountains-logo {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  left: 21%;
+  top: 32%;
+}
+
+@media screen and (max-width: 740px) {
+
+  .los-angles-mountains-logo {
+    left: 10%;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .los-angles-mountains-logo {
+    width: 416px;
+    height: 161px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .los-angles-mountains-logo {
+    width: 297px;
+    height: 115px;
+  }
+
 }
 
 /* History Page */
@@ -438,6 +601,26 @@ body {
   max-width: 198px;
 }
 
+@media screen and (max-width: 500px) {
+
+  .carousel-mountain-item {
+    min-width: revert;
+    max-width: revert;
+    margin-left: -25px;
+  }
+
+}
+
+@media screen and (max-width: 740px) {
+
+  .ellipse,
+  .ellipse-dark {
+    height: 14px;
+    width: 14px;
+  }
+
+}
+
 @media screen and (max-width: 900px) {
 
   .mountain-carousel {
@@ -482,10 +665,16 @@ li {
 .mountain-bar-text.active {
   color: #414f6b;
 }
+.mountain-bar-box-1,
+.mountain-bar-box-2,
+.mountain-bar-box-1.active,
+.mountain-bar-box-2.active {
+  user-select: none;
+}
 
 .mountain-bar-box-1,
 .mountain-bar-box-1.active {
-  margin-left: 168px;
+  margin-left: 15%;
 }
 
 .mountain-bar-box-1.active,
@@ -609,6 +798,15 @@ li {
   overflow: none;
   min-width: auto;
   max-width: auto;
+}
+
+@media screen and (max-width: 740px) {
+
+  .mountain-bar-box-1,
+  .mountain-bar-box-1.active {
+    margin-left: 10%;
+  }
+
 }
 
 

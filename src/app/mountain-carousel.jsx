@@ -10,10 +10,15 @@ const MountainCarousel = () => {
       items: 4,
       slidesToSlide: 4
     },
-    mobile: {
-      breakpoint: { max: 900, min: 0 },
+    mobileBig: {
+      breakpoint: { max: 900, min: 500 },
       items: 2,
       slidesToSlide: 2
+    },
+    mobile: {
+      breakpoint: { max: 500, min: 0 },
+      items: 1,
+      slidesToSlide: 1
     }
   };
 

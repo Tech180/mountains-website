@@ -9,24 +9,28 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 export default function Page() {
-  const [change, setChange] = useState(0);
   const carouselRef = useRef(null);
 
   const handleChange = (tab) => {
-    setChange(tab);
 
     switch(tab) {
       case 0:
         document.documentElement.style.setProperty('--nav-color', '#fefeff');
         document.querySelector('.side-logo').style.opacity = '0';
+        document.querySelector('.side-logo-mobile').style.opacity = '0';
+        document.querySelector('.fas.fa-bars').style.color = '#fefeff';
         break;
       case 1:
         document.documentElement.style.setProperty('--nav-color', '#414f6b');
         document.querySelector('.side-logo').style.opacity = '1';
+        document.querySelector('.side-logo-mobile').style.opacity = '1';
+        document.querySelector('.fas.fa-bars').style.color = '#414f6b';
         break;
       case 2:
         document.documentElement.style.setProperty('--nav-color', '#414f6b');
         document.querySelector('.side-logo').style.opacity = '0';
+        document.querySelector('.side-logo-mobile').style.opacity = '0';
+        document.querySelector('.fas.fa-bars').style.color = '#414f6b';
         break;
       default:
         break;
@@ -55,6 +59,8 @@ export default function Page() {
           draggable={false}
           arrows={false}
           partialVisible={false}
+          swipeable={false}
+          ssr={true}
         >
           <Main  />
           <History />
